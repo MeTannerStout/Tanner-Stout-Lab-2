@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.labtwotannerstout;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 /**
  *
  * @author metan
@@ -12,14 +12,17 @@ import javax.swing.JOptionPane;
 public class BankChargesTS {
     public static void main(String[] args) {
         
+        Scanner Keyboard = new Scanner(System.in);
+        
         String userInput;
         int userNumberOfChecks;
         double bankServiceFees;
         final double bankBaseFee = 10;
         String serviceFeeOutput;
         
-        userInput = JOptionPane.showInputDialog("How many checks were written fro the month?");
-        userNumberOfChecks = Integer.parseInt(userInput);
+        System.out.println("How many checks were written fro the month?");
+        userNumberOfChecks = Keyboard.nextInt();
+ 
         
         if(userNumberOfChecks < 20){
             bankServiceFees = bankBaseFee + (userNumberOfChecks * 0.10);
@@ -31,8 +34,7 @@ public class BankChargesTS {
             bankServiceFees = bankBaseFee + (userNumberOfChecks * 0.04);
         }
            serviceFeeOutput = String.format("Service Fee; $%,.2f", bankServiceFees);
-           JOptionPane.showInputDialog(serviceFeeOutput);
+           System.out.println( serviceFeeOutput );
            
-           System.exit(0);
     }
 }
